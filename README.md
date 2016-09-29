@@ -8,12 +8,12 @@ developers to create and share plugins called `Providers`
 
 This example demonstrates how to create a `Vapor Provider` with functionality
 that would be required by real Providers, such as Admin backends, Debug toolbars
-and Job Queue management, such as:
+and Job Queue management, including:
 
 - Default configuration with optional overrides using `json`
 - Example Route that returns a view using the [Leaf](https://github.com/vapor/leaf)
 Swift templating language.
-- Example Middleware
+- Example Middleware.
 
 The purpose of this repo is simply is to provide some guidance on how to build
 Providers that extend Vapor's core functionality.
@@ -27,8 +27,8 @@ your `Packages.swift` file.
 let package = Package(
     name: "MyApp",
     dependencies: [
-   		.Package(url: "https://github.com/vapor/vapor.git", majorVersion: 1),
-      .Package(url: "https://github.com/mpclarkson/vapor-demo-provider.git", majorVersion: 1),
+   	    .Package(url: "https://github.com/vapor/vapor.git", majorVersion: 1),
+        .Package(url: "https://github.com/mpclarkson/vapor-demo-provider.git", majorVersion: 1),
     ]
 )
 ```
@@ -71,7 +71,7 @@ see the HTML page.
 This demo provider also includes middleware that simply adds a header
 `DemoProvider: Installed` to all responses.
 
-Currently it is not possible for a provider to enable middleware - you must
+Currently it does not seem possible for a provider to enable middleware automatically - you must
 do this manually.
 
 ```swift
@@ -105,7 +105,7 @@ Then run `vapor build && vapor run`.
 
 ## Thoughts
 
-While building this demo, a few things came to mind that would help make it easier
+While building this demo, a few things came to mind that could help make it easier
 for the community to build Providers.
 
 - The Vapor toolkit could be extended to allow the creation of skeletons, for example
@@ -118,7 +118,7 @@ are initialized. It would be nice to be able to do something like
 have missed something, but the only way I can see how a Provider can (easily)
 return views is to copy the Provider views into the `drop.resourcesDir`. Perhaps
 Providers could have a default resource dir of their own, which could be overridden
-on `init` to allow custom templates to be used in their place?
+on `init` to allow custom templates to be used in there place?
 
 ## Next Steps
 
